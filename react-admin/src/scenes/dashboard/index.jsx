@@ -12,16 +12,8 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
+import Thermometer from '../../components/Thermometer';
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-}));
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -280,48 +272,18 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            pH Levels
+            
           </Typography>
-          <Grid 
-            container spacing={0.5}
-            padding="70px">
-          <Grid xs={1} style={{backgroundColor: 'red'}}>
-            <Item>1</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'orange'}}>
-            <Item>2</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'yellow'}}>
-            <Item>3</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'green'}}>
-            <Item>4</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'blue'}}>
-            <Item>5</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'indigo'}}>
-            <Item>6</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'violet'}}>
-            <Item>7</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'red'}}>
-            <Item>8</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'orange'}}>
-            <Item>9</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'yellow'}}>
-            <Item>10</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'green'}}>
-            <Item>11</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'blue'}}>
-            <Item>12</Item>
-          </Grid>
-          </Grid>
+          {/* Add Thermometer component */}
+          <Box
+            gridColumn="span 3" // Adjust the grid column as needed
+            backgroundColor={colors.primary[400]}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Thermometer />
+          </Box>
         </Box>
       </Box>
     </Box>
