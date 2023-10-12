@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Container, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
@@ -17,15 +17,24 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
-const Item = styled(Paper)(({ theme }) => ({
+import PHLevelCard from './PHLevelCard';
+
+const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
+  backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
+  color: '#fff',
+  width: 30,
 }));
+
+
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const currentPH = 5; // Example current pH value
+  const optimalRange = [6, 8]; // Example optimal pH range
 
   return (
     <Box m="20px">
@@ -114,7 +123,7 @@ const Dashboard = () => {
             }
           />
         </Box>
-        <Box
+        {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -132,7 +141,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </Box> */}
+        <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
 
         {/* ROW 2 */}
         <Box
@@ -269,60 +279,7 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          padding="30px"
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-            pH Levels
-          </Typography>
-          <Grid 
-            container spacing={0.5}
-            padding="70px">
-          <Grid xs={1} style={{backgroundColor: 'red'}}>
-            <Item>1</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'orange'}}>
-            <Item>2</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'yellow'}}>
-            <Item>3</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'green'}}>
-            <Item>4</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'blue'}}>
-            <Item>5</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'indigo'}}>
-            <Item>6</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'violet'}}>
-            <Item>7</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'red'}}>
-            <Item>8</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'orange'}}>
-            <Item>9</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'yellow'}}>
-            <Item>10</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'green'}}>
-            <Item>11</Item>
-          </Grid>
-          <Grid xs={1} style={{backgroundColor: 'blue'}}>
-            <Item>12</Item>
-          </Grid>
-          </Grid>
-        </Box>
+        <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
       </Box>
     </Box>
   );

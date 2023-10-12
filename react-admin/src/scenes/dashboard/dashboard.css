@@ -1,0 +1,36 @@
+/* .triangle {
+    width: 0;
+    height: 0;
+    border: 150px solid transparent;
+    border-top: 0;
+    border-bottom: 300px solid red;
+  } */
+.triangle {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 10px solid rgb(255, 255, 255);
+    padding-top: 3px;
+}
+
+.current-ph {
+    position: relative;
+    /* top: -26px;
+    left: 50%; */
+    /* transform: translateX(-50%); */
+    font-weight: bold;
+    /* background-color: white; */
+    /* padding: 4px 8px; */
+    padding-top: 0%;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 4px; */
+}
+  
+.comment {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
