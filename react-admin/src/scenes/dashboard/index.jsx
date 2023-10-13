@@ -11,13 +11,29 @@ import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-
 import Thermometer from '../../components/Thermometer';
+import LightGauge from "../../components/LightGauge";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+import PHLevelCard from './PHLevelCard';
+
+const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
+  backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: '#fff',
+  width: 30,
+}));
 
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const currentPH = 8; // Example current pH value
+  const optimalRange = [6, 8]; // Example optimal pH range
 
   return (
     <Box m="20px">
@@ -55,18 +71,12 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          padding="20px"
+          minWidth={400}
         >
-          <StatBox
-            title="25 °C"
-            subtitle="Temperature"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <DeviceThermostatIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
+
+        <Thermometer />
+
         </Box>
         <Box
           gridColumn="span 3"
@@ -106,25 +116,8 @@ const Dashboard = () => {
             }
           />
         </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="7"
-            subtitle="pH Levels"
-            progress="0.80"
-            increase="+43%"
-            icon={
-              <Battery3BarIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
+
+        <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
 
         {/* ROW 2 */}
         <Box
@@ -282,7 +275,9 @@ const Dashboard = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Thermometer />
+
+            <LightGauge />
+
           </Box>
         </Box>
       </Box>

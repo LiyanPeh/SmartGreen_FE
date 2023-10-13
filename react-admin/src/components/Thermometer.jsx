@@ -56,6 +56,8 @@ const Thermometer = () => {
     variant="determinate"
     value={(temperature / 40) * 100} // Assuming the thermometer scale is from 0°C to 40°C
     color="secondary"
+    sx={{ height: '16px'}} // Adjust the height to increase the thickness
+    style={{ borderRadius: '8px' }} // Apply a style for border radius
   />
   <div
     style={{
@@ -71,9 +73,12 @@ const Thermometer = () => {
     <Alert
       severity={alertType}
       sx={{
-        marginTop: '16px',
+        marginTop: '0px',
         fontSize: '16px', // Set a consistent font size
-        width: '50%', // Set a consistent width
+        width: '30%', // Set a consistent width
+        lineHeight: '-5', // Reduce the line height
+        padding: '0px', // Reduce the padding to control the height
+        backgroundColor: 'transparent', // Remove the background
       }}
     >
       {alertType === 'error' && 'Not optimal'}
