@@ -32,7 +32,7 @@ const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const currentPH = 8; // Example current pH value
+  const currentPH = 7; // Example current pH value
   const optimalRange = [6, 8]; // Example optimal pH range
 
   return (
