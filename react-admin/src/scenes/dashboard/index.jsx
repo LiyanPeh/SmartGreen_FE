@@ -11,12 +11,14 @@ import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
+import Thermometer from '../../components/Thermometer';
+import LightGauge from "../../components/LightGauge";
+import PlantGrowthProgress from '../../components/PlantGrowthProgress';
 import PHLevelCard from './PHLevelCard';
 import HumidityCard from "./HumidityCard";
 
@@ -29,14 +31,12 @@ const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   width: 30,
 }));
 
-
-
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const currentPH = 7; // Example current pH value
   const optimalRange = [6, 8]; // Example optimal pH range
-  const currentHumidity = 5; // Example current Humidity value
+  const currentHumidity = 15; // Example current Humidity value
   const optimalHumidityRange = [11, 16]; // Example optimal Humidity range
 
   return (
@@ -75,18 +75,12 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          padding="20px"
+          minWidth={400}
         >
-          <StatBox
-            title="25 °C"
-            subtitle="Temperature"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <DeviceThermostatIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
+
+        <Thermometer />
+
         </Box>
         {/* <Box
           gridColumn="span 3"
@@ -127,25 +121,7 @@ const Dashboard = () => {
             }
           />
         </Box>
-        {/* <Box
-          gridColumn="span 3"
-          backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="7"
-            subtitle="pH Levels"
-            progress="0.80"
-            increase="+43%"
-            icon={
-              <Battery3BarIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
-        </Box> */}
+
         <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
 
         {/* ROW 2 */}
@@ -161,34 +137,25 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box>
-              <Typography
-                variant="h5"
-                fontWeight="600"
-                color={colors.grey[100]}
-              >
-                Revenue Generated
-              </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                $59,342.32
-              </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
-            </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
-            <LineChart isDashboard={true} />
+
+          <Typography variant="h5" fontWeight="600" sx={{ marginTop: "-10px",marginBottom: "100px", marginLeft: "10px" }}>
+              Plant Growth Progress
+          </Typography>
+
+          <Box
+            sx={{
+              width: '200px', // Adjust the width as needed
+              height: '200px', // Adjust the height as needed
+            }}
+          >
+            <PlantGrowthProgress size="200px" value={50} color="primary" />
           </Box>
+        
+
+        
         </Box>
+        
         <Box
           gridColumn="span 4"
           gridRow="span 2"
@@ -281,6 +248,32 @@ const Dashboard = () => {
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
+          </Box>
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px" }}
+          >
+            
+          </Typography>
+          {/* Add Thermometer component */}
+          <Box
+            gridColumn="span 3" // Adjust the grid column as needed
+            backgroundColor={colors.primary[400]}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+
+            <LightGauge />
+
           </Box>
         </Box>
       </Box>
