@@ -18,6 +18,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import PHLevelCard from './PHLevelCard';
+import HumidityCard from "./HumidityCard";
 
 const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -33,8 +34,10 @@ const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const currentPH = 5; // Example current pH value
+  const currentPH = 7; // Example current pH value
   const optimalRange = [6, 8]; // Example optimal pH range
+  const currentHumidity = 5; // Example current Humidity value
+  const optimalHumidityRange = [11, 16]; // Example optimal Humidity range
 
   return (
     <Box m="20px">
@@ -85,7 +88,7 @@ const Dashboard = () => {
             }
           />
         </Box>
-        <Box
+        {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -103,7 +106,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </Box> */}
+        <HumidityCard currentHumidity={currentHumidity} optimalHumidityRange={optimalHumidityRange} />
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -279,7 +283,6 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
-        <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
       </Box>
     </Box>
   );
