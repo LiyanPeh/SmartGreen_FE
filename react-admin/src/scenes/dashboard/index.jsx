@@ -18,6 +18,8 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import PHLevelCard from './PHLevelCard';
+import PlantGrowthProgress from '../../components/PlantGrowthProgress';
+
 
 const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -132,34 +134,25 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Box>
-              <Typography
-                variant="h5"
-                fontWeight="600"
-                color={colors.grey[100]}
-              >
-                Revenue Generated
-              </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                $59,342.32
-              </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
-            </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
-            <LineChart isDashboard={true} />
+
+          <Typography variant="h5" fontWeight="600" sx={{ marginTop: "-10px",marginBottom: "100px", marginLeft: "10px" }}>
+              Plant Growth Progress
+          </Typography>
+
+          <Box
+            sx={{
+              width: '200px', // Adjust the width as needed
+              height: '200px', // Adjust the height as needed
+            }}
+          >
+            <PlantGrowthProgress size="200px" value={50} color="primary" />
           </Box>
+        
+
+        
         </Box>
+        
         <Box
           gridColumn="span 4"
           gridRow="span 2"
