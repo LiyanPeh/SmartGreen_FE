@@ -29,9 +29,9 @@ const PlantGrowthProgress = ({ size, color }) => {
       <CircularProgress
         variant="determinate"
         value={progressValue}
-        color={color}
         size={size}
         thickness={5}
+        style={{ color: 'lightgreen' }}
       />
       <Box
         sx={{

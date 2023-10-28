@@ -21,6 +21,7 @@ import LightGauge from "../../components/LightGauge";
 import PlantGrowthProgress from '../../components/PlantGrowthProgress';
 import PHLevelCard from './PHLevelCard';
 import HumidityCard from "./HumidityCard";
+import CustomCard from '../../components/Card.jsx';
 
 const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -129,32 +130,21 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
         >
-          <Box
-            mt="25px"
-            p="0 30px"
-            display="flex "
-            justifyContent="space-between"
-            alignItems="center"
-          >
-          </Box>
-
-          <Typography variant="h5" fontWeight="600" sx={{ marginTop: "-10px",marginBottom: "100px", marginLeft: "10px" }}>
-              Plant Growth Progress
+          <Typography variant="h5" fontWeight="600" sx={{ marginTop: "-250px", marginLeft: "20px" }}>
+                        Plant Growth Progress
           </Typography>
-
-          <Box
-            sx={{
-              width: '200px', // Adjust the width as needed
-              height: '200px', // Adjust the height as needed
-            }}
-          >
+          <Box p="30px" marginTop="130px" marginLeft="-220px">
             <PlantGrowthProgress size="200px" value={50} color="primary" />
           </Box>
-        
 
-        
+          <Box p="30px" marginTop="0px" marginLeft="150px">
+            <CustomCard />
+          </Box>
         </Box>
+
         
         <Box
           gridColumn="span 4"
@@ -223,15 +213,7 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
-            </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <CustomCard />
           </Box>
         </Box>
         <Box
