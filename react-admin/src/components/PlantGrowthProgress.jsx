@@ -25,7 +25,7 @@ const PlantGrowthProgress = ({ size, color }) => {
   const progressValue = calculateProgressValue(daysRemaining);
 
   return (
-    <div style={{ position: 'relative', top: '-60px', left: '50px' }}>
+    <div style={{ position: 'relative'}}>
       <CircularProgress
         variant="determinate"
         value={progressValue}

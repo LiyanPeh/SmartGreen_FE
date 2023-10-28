@@ -7,7 +7,7 @@ import Alert from '@mui/material/Alert';
 
 const ThermometerRoot = styled('div')(({ theme }) => ({
   width: '100%',
-  marginTop: theme.spacing(2),
+  // marginTop: theme.spacing(2),
 }));
 
 const TemperatureText = styled('div')({
@@ -41,7 +41,11 @@ const Thermometer = () => {
 
   return (
 <ThermometerRoot>
-  <Typography variant="h6" gutterBottom>
+  <Typography 
+  variant="h5"
+  fontWeight="600"
+  // sx={{ marginBottom: "15px" }}
+  >
     Temperature
   </Typography>
   <TemperatureText>
@@ -75,7 +79,7 @@ const Thermometer = () => {
       sx={{
         marginTop: '0px',
         fontSize: '16px', // Set a consistent font size
-        width: '30%', // Set a consistent width
+        width: '120px', // Set a consistent width
         lineHeight: '-5', // Reduce the line height
         padding: '0px', // Reduce the padding to control the height
         backgroundColor: 'transparent', // Remove the background

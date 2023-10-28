@@ -75,7 +75,7 @@ const HumidityCard = ({ currentHumidity, optimalHumidityRange }) => {
                 <Typography
                 variant="h5"
                 fontWeight="600"
-                sx={{ marginBottom: "15px" }}
+                // sx={{ marginBottom: "15px" }}
                 >
                     Humidity
                 </Typography>

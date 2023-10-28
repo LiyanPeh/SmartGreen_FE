@@ -5,6 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Box, Container, Button, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import './dashboard.css';
+import Alert from '@mui/material/Alert';
 
 const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -42,38 +43,62 @@ const Triangle = () => {
 const PHLevelCard = ({ currentPH, optimalRange }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    const [comment, setComment] = useState('');
+    // const [comment, setComment] = useState('');
 
+    // useEffect(() => {
+    //     // Determine the comment based on the currentPH and optimalRange
+    //     if (currentPH >= optimalRange[0] && currentPH <= optimalRange[1]) {
+    //     setComment('Optimal');
+    //     } else if (currentPH < optimalRange[0]) {
+    //     setComment('Too low');
+    //     } else {
+    //     setComment('Too high');
+    //     }
+    // }, [currentPH, optimalRange]);
+
+    const [pHLevel, setPHLevel] = useState(7); // Initial value (mock data)
+
+    // Simulate pH changes
     useEffect(() => {
-        // Determine the comment based on the currentPH and optimalRange
-        if (currentPH >= optimalRange[0] && currentPH <= optimalRange[1]) {
-        setComment('Optimal');
-        } else if (currentPH < optimalRange[0]) {
-        setComment('Too low');
-        } else {
-        setComment('Too high');
-        }
-    }, [currentPH, optimalRange]);
+    const intervalId = setInterval(() => {
+        // Update temperature with mock data (replace this with actual data source)
+        const newPH = Math.random() * 10 + 1; // Random temperature between 10 and 40
+        setPHLevel(newPH.toFixed(1));
+    }, 5000); // Update pH every 5 seconds
+
+    return () => clearInterval(intervalId);
+    }, []);
+
+    let alertType = 'info'; // Default alert type
+
+    if (pHLevel >= 0 && pHLevel <= 6) {
+    alertType = 'error'; // "Not optimal" range
+    } else if (pHLevel > 6 && pHLevel <= 8) {
+    alertType = 'success'; // "Optimal" range
+    } else if (pHLevel > 8) {
+    alertType = 'error'; // "Not optimal" range
+    }
 
     // Calculate the left position based on the currentPH value
-    const triangleLeft = `${((currentPH - 1) / 11) * 100}%`;
+    const triangleLeft = `${((pHLevel - 1) / 11) * 100}%`;
 
     return (
         <Box
             gridColumn="span 3"
-            // gridRow="span 2"
+            gridRow="span 1"
             backgroundColor={theme.palette.mode === 'dark' ? colors.primary[400] : colors.grey[900]}
             padding="20px"
             minWidth={400}
+            // minHeight={200}
         >
             <Typography
             variant="h5"
             fontWeight="600"
             // sx={{ marginBottom: "15px" }}
             >
-            pH Levels
+            pH Level
             </Typography>
-            <Grid><div className="comment">{comment}</div></Grid>
+            {/* <Grid><div className="comment">{comment}</div></Grid> */}
             <Grid 
             container spacing={0.5}
             flexWrap= 'nowrap'>
@@ -117,7 +142,26 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
                 
             </Grid>
             <Grid>
-                <div className="current-ph" style={{ left: `calc(${(currentPH - 1) / 11 * 100 + 1}%)` }}>{currentPH}</div>
+                <div className="current-ph" style={{ left: `calc(${(pHLevel - 1) / 11 * 100 + 1}%)` }}>{pHLevel}</div>
+            </Grid>
+            <Grid
+            container
+            justifyContent="center"
+            alignItems="center">
+                <Alert
+                severity={alertType}
+                sx={{
+                    marginTop: '0px',
+                    fontSize: '16px', // Set a consistent font size
+                    width: '120px', // Set a consistent width
+                    lineHeight: '-5', // Reduce the line height
+                    padding: '0px', // Reduce the padding to control the height
+                    backgroundColor: 'transparent', // Remove the background
+                }}
+                >
+                {alertType === 'error' && 'Not optimal'}
+                {alertType === 'success' && 'Optimal'}
+                </Alert>
             </Grid>
             
             

@@ -74,8 +74,8 @@ const Dashboard = () => {
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
-          alignItems="center"
-          justifyContent="center"
+          // alignItems="center"
+          // justifyContent="center"
           padding="20px"
           minWidth={400}
         >
@@ -131,74 +131,43 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           display="flex"
-          alignItems="center"
+          // alignItems="center"
+          padding="20px"
         >
-          <Typography variant="h5" fontWeight="600" sx={{ marginTop: "-250px", marginLeft: "20px" }}>
-                        Plant Growth Progress
-          </Typography>
-          <Box p="30px" marginTop="130px" marginLeft="-220px">
-            <PlantGrowthProgress size="200px" value={50} color="primary" />
+          <Box
+          display="flex"
+          flexDirection="column">
+            <Typography variant="h5" fontWeight="600">
+                          Plant Growth Progress
+            </Typography>
+            <Box p="15px">
+              <PlantGrowthProgress size="200px" value={50} color="primary" />
+            </Box>
           </Box>
+          
 
-          <Box p="30px" marginTop="0px" marginLeft="150px">
+          <Box 
+          p="30px" marginTop="0px" display="flex" alignItems="center">
             <CustomCard />
           </Box>
         </Box>
 
-        
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          overflow="auto"
+          padding="20px"
+          minWidth={400}
+          // display="flex"
+          // alignItems="center"
+          // justifyContent="center"
         >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, i) => (
-            <Box
-              key={`${transaction.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {transaction.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
-              </Box>
-            </Box>
-          ))}
+          <LightGauge />
         </Box>
+      
 
         {/* ROW 3 */}
-        <Box
+        {/* <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -215,8 +184,8 @@ const Dashboard = () => {
           >
             <CustomCard />
           </Box>
-        </Box>
-        <Box
+        </Box> */}
+        {/* <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -231,33 +200,8 @@ const Dashboard = () => {
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
-        </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          padding="30px"
-        >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-            
-          </Typography>
-          {/* Add Thermometer component */}
-          <Box
-            gridColumn="span 3" // Adjust the grid column as needed
-            backgroundColor={colors.primary[400]}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-
-            <LightGauge />
-
-          </Box>
-        </Box>
+        </Box> */}
+        
       </Box>
     </Box>
   );
