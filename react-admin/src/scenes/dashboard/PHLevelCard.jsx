@@ -62,7 +62,7 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
     useEffect(() => {
     const intervalId = setInterval(() => {
         // Update temperature with mock data (replace this with actual data source)
-        const newPH = Math.random() * 10 + 1; // Random temperature between 10 and 40
+        const newPH = Math.random() * 10 + 1; // Random temperature between 1 and 11
         setPHLevel(newPH.toFixed(1));
     }, 5000); // Update pH every 5 seconds
 
@@ -100,7 +100,9 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
             </Typography>
             {/* <Grid><div className="comment">{comment}</div></Grid> */}
             <Grid 
-            container spacing={0.5}
+            // container spacing={0.5}
+            display={'flex'}
+            justifyContent={'space-evenly'}
             flexWrap= 'nowrap'>
             <Grid>
                 <Item customBackgroundColor="#ff3030">1</Item>
@@ -138,11 +140,11 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
             </Grid>
             <Grid >
                 {/* <Triangle style={{ left: triangleLeft }}></Triangle> */}
-                <div className='triangle' style={{ left: triangleLeft }}></div>
+                <div className='triangle' style={{ left:  `calc(${triangleLeft} - 7px)`}}></div>
                 
             </Grid>
             <Grid>
-                <div className="current-ph" style={{ left: `calc(${(pHLevel - 1) / 11 * 100 + 1}%)` }}>{pHLevel}</div>
+                <div className="current-ph" style={{ left: `calc(${triangleLeft} - 14px)`, display: 'flex', justifyContent: 'center'}}>{pHLevel}</div>
             </Grid>
             <Grid
             container
