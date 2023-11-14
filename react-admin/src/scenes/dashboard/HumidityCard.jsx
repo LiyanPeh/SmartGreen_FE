@@ -59,10 +59,16 @@ const HumidityCard = ({ currentHumidity, optimalHumidityRange }) => {
     //     waterWave.style.setProperty('--water-level', `${waterLevel}`);
     // }, [currentHumidity, optimalHumidityRange]);
 
-    const [humidityLevel, setHumidityLevel] = useState(7); // Initial value (mock data)
+    const [humidityLevel, setHumidityLevel] = useState(15); // Initial value (mock data)
 
+    
     // Simulate pH changes
     useEffect(() => {
+        
+    const waterLevel = (humidityLevel / 30) * 100;
+    const waterWave = document.querySelector('.water_wave');
+    waterWave.style.setProperty('--water-level', `${waterLevel}`);
+    
     const intervalId = setInterval(() => {
         // Update temperature with mock data (replace this with actual data source)
         const newHumidity = Math.random() * 10 + 10; // Random temperature between 10 and 20

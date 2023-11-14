@@ -89,7 +89,6 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
             backgroundColor={theme.palette.mode === 'dark' ? colors.primary[400] : colors.grey[900]}
             padding="20px"
             minWidth={400}
-            // minHeight={200}
         >
             <Typography
             variant="h5"
@@ -100,43 +99,44 @@ const PHLevelCard = ({ currentPH, optimalRange }) => {
             </Typography>
             {/* <Grid><div className="comment">{comment}</div></Grid> */}
             <Grid 
-            // container spacing={0.5}
-            display={'flex'}
-            justifyContent={'space-evenly'}
-            flexWrap= 'nowrap'>
-            <Grid>
-                <Item customBackgroundColor="#ff3030">1</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#FF8700">2</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#dbb500">3</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#aec41f">4</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#90db18">5</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#0bd454">6</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#0ad2ff">7</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#147DF5">8</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#580AFF">9</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#BE0AFF">10</Item>
-            </Grid>
-            <Grid>
-                <Item customBackgroundColor="#890ca6">11+</Item>
-            </Grid>
+                // container spacing={0.5}
+                display={'flex'}
+                justifyContent={'space-evenly'}
+                flexWrap= 'nowrap'
+            >
+                <Grid>
+                    <Item customBackgroundColor="#ff3030">1</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#FF8700">2</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#dbb500">3</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#aec41f">4</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#90db18">5</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#0bd454">6</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#0ad2ff">7</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#147DF5">8</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#580AFF">9</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#BE0AFF">10</Item>
+                </Grid>
+                <Grid>
+                    <Item customBackgroundColor="#890ca6">11+</Item>
+                </Grid>
             </Grid>
             <Grid >
                 {/* <Triangle style={{ left: triangleLeft }}></Triangle> */}

@@ -177,7 +177,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Line Chart"
+              title="Temperature Reading"
               to="/line"
               icon={<TimelineOutlinedIcon />}
               selected={selected}

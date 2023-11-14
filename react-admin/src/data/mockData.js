@@ -432,167 +432,215 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "japan",
+    id: "Temperature",
     color: tokens("dark").greenAccent[500],
     data: [
       {
-        x: "plane",
-        y: 101,
+        x: "00:00",
+        y: 28,
       },
       {
-        x: "helicopter",
-        y: 75,
+        x: "03:00",
+        y: 25,
       },
       {
-        x: "boat",
-        y: 36,
+        x: "06:00",
+        y: 23,
       },
       {
-        x: "train",
-        y: 216,
+        x: "09:00",
+        y: 29,
       },
       {
-        x: "subway",
-        y: 35,
+        x: "12:00",
+        y: 26,
       },
       {
-        x: "bus",
-        y: 236,
+        x: "15:00",
+        y: 30,
       },
       {
-        x: "car",
-        y: 88,
+        x: "18:00",
+        y: 22,
       },
       {
-        x: "moto",
-        y: 232,
+        x: "21:00",
+        y: 27,
       },
       {
-        x: "bicycle",
-        y: 281,
+        x: "01:00",
+        y: 21,
       },
       {
-        x: "horse",
-        y: 1,
+        x: "04:00",
+        y: 23,
       },
       {
-        x: "skateboard",
-        y: 35,
+        x: "07:00",
+        y: 28,
       },
       {
-        x: "others",
-        y: 14,
+        x: "10:00",
+        y: 24,
+      },
+      {
+        x: "13:00",
+        y: 30,
+      },
+      {
+        x: "16:00",
+        y: 29,
+      },
+      {
+        x: "19:00",
+        y: 25,
+      },
+      {
+        x: "22:00",
+        y: 21,
+      },
+      {
+        x: "02:00",
+        y: 27,
+      },
+      {
+        x: "05:00",
+        y: 22,
+      },
+      {
+        x: "08:00",
+        y: 30,
+      },
+      {
+        x: "11:00",
+        y: 28,
+      },
+      {
+        x: "14:00",
+        y: 26,
+      },
+      {
+        x: "17:00",
+        y: 20,
+      },
+      {
+        x: "20:00",
+        y: 24,
+      },
+      {
+        x: "23:00",
+        y: 25,
       },
     ],
-  },
-  {
-    id: "france",
-    color: tokens("dark").blueAccent[300],
-    data: [
-      {
-        x: "plane",
-        y: 212,
-      },
-      {
-        x: "helicopter",
-        y: 190,
-      },
-      {
-        x: "boat",
-        y: 270,
-      },
-      {
-        x: "train",
-        y: 9,
-      },
-      {
-        x: "subway",
-        y: 75,
-      },
-      {
-        x: "bus",
-        y: 175,
-      },
-      {
-        x: "car",
-        y: 33,
-      },
-      {
-        x: "moto",
-        y: 189,
-      },
-      {
-        x: "bicycle",
-        y: 97,
-      },
-      {
-        x: "horse",
-        y: 87,
-      },
-      {
-        x: "skateboard",
-        y: 299,
-      },
-      {
-        x: "others",
-        y: 251,
-      },
-    ],
-  },
-  {
-    id: "us",
-    color: tokens("dark").redAccent[200],
-    data: [
-      {
-        x: "plane",
-        y: 191,
-      },
-      {
-        x: "helicopter",
-        y: 136,
-      },
-      {
-        x: "boat",
-        y: 91,
-      },
-      {
-        x: "train",
-        y: 190,
-      },
-      {
-        x: "subway",
-        y: 211,
-      },
-      {
-        x: "bus",
-        y: 152,
-      },
-      {
-        x: "car",
-        y: 189,
-      },
-      {
-        x: "moto",
-        y: 152,
-      },
-      {
-        x: "bicycle",
-        y: 8,
-      },
-      {
-        x: "horse",
-        y: 197,
-      },
-      {
-        x: "skateboard",
-        y: 107,
-      },
-      {
-        x: "others",
-        y: 170,
-      },
-    ],
-  },
+  }
+  // {
+  //   id: "france",
+  //   color: tokens("dark").blueAccent[300],
+  //   data: [
+  //     {
+  //       x: "plane",
+  //       y: 212,
+  //     },
+  //     {
+  //       x: "helicopter",
+  //       y: 190,
+  //     },
+  //     {
+  //       x: "boat",
+  //       y: 270,
+  //     },
+  //     {
+  //       x: "train",
+  //       y: 9,
+  //     },
+  //     {
+  //       x: "subway",
+  //       y: 75,
+  //     },
+  //     {
+  //       x: "bus",
+  //       y: 175,
+  //     },
+  //     {
+  //       x: "car",
+  //       y: 33,
+  //     },
+  //     {
+  //       x: "moto",
+  //       y: 189,
+  //     },
+  //     {
+  //       x: "bicycle",
+  //       y: 97,
+  //     },
+  //     {
+  //       x: "horse",
+  //       y: 87,
+  //     },
+  //     {
+  //       x: "skateboard",
+  //       y: 299,
+  //     },
+  //     {
+  //       x: "others",
+  //       y: 251,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: "us",
+  //   color: tokens("dark").redAccent[200],
+  //   data: [
+  //     {
+  //       x: "plane",
+  //       y: 191,
+  //     },
+  //     {
+  //       x: "helicopter",
+  //       y: 136,
+  //     },
+  //     {
+  //       x: "boat",
+  //       y: 91,
+  //     },
+  //     {
+  //       x: "train",
+  //       y: 190,
+  //     },
+  //     {
+  //       x: "subway",
+  //       y: 211,
+  //     },
+  //     {
+  //       x: "bus",
+  //       y: 152,
+  //     },
+  //     {
+  //       x: "car",
+  //       y: 189,
+  //     },
+  //     {
+  //       x: "moto",
+  //       y: 152,
+  //     },
+  //     {
+  //       x: "bicycle",
+  //       y: 8,
+  //     },
+  //     {
+  //       x: "horse",
+  //       y: 197,
+  //     },
+  //     {
+  //       x: "skateboard",
+  //       y: 107,
+  //     },
+  //     {
+  //       x: "others",
+  //       y: 170,
+  //     },
+  //   ],
+  // },
 ];
 
 export const mockGeographyData = [

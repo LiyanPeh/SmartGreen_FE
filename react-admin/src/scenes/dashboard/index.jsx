@@ -21,7 +21,10 @@ import LightGauge from "../../components/LightGauge";
 import PlantGrowthProgress from '../../components/PlantGrowthProgress';
 import PHLevelCard from './PHLevelCard';
 import HumidityCard from "./HumidityCard";
+import EcCard from "./EcCard.jsx";
 import CustomCard from '../../components/Card.jsx';
+
+import bokChoyImage from '../../media/bokChoy.png';
 
 const Item = styled(Paper)(({ theme, customBackgroundColor }) => ({
   backgroundColor: customBackgroundColor || (theme.palette.mode === 'dark' ? '#1A2027' : '#fff'),
@@ -77,7 +80,7 @@ const Dashboard = () => {
           // alignItems="center"
           // justifyContent="center"
           padding="20px"
-          minWidth={400}
+          minWidth={250}
         >
 
         <Thermometer />
@@ -103,7 +106,7 @@ const Dashboard = () => {
           />
         </Box> */}
         <HumidityCard currentHumidity={currentHumidity} optimalHumidityRange={optimalHumidityRange} />
-        <Box
+        {/* <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -121,7 +124,8 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </Box> */}
+        <EcCard></EcCard>
 
         <PHLevelCard currentPH={currentPH} optimalRange={optimalRange} />
 
@@ -130,26 +134,32 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          display="flex"
-          // alignItems="center"
           padding="20px"
         >
-          <Box
-          display="flex"
-          flexDirection="column">
-            <Typography variant="h5" fontWeight="600">
+          <Typography variant="h5" fontWeight="600">
                           Plant Growth Progress
-            </Typography>
-            <Box p="15px">
-              <PlantGrowthProgress size="200px" value={50} color="primary" />
+          </Typography>
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box>
+              <Box p="15px">
+                <PlantGrowthProgress size="200px" value={50} color="primary" />
+              </Box>
             </Box>
+            
+
+            <Box 
+            p="30px" marginTop="0px" display="flex" alignItems="center">
+              <CustomCard />
+            </Box>
+            <div>
+              <img src={bokChoyImage} alt="bokChoy Image" style={{ width: '100%', height: 'auto', maxHeight: '225px'}}/>
+            </div>
           </Box>
           
-
-          <Box 
-          p="30px" marginTop="0px" display="flex" alignItems="center">
-            <CustomCard />
-          </Box>
         </Box>
 
         <Box
